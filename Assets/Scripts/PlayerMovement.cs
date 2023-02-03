@@ -13,9 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public float dashDistance, dashTime, dashCooldown;
     public Rigidbody rb;
 
-    Vector3 moveDirection = Vector3.zero;
+    Vector3 moveDirection;
 
-    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
