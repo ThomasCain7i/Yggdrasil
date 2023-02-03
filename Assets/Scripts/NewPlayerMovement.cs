@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NewPlayerMovement : MonoBehaviour
 {
+    //Variables
+
     private Vector3 moveDirection;
     private Vector3 lastMove;
     private float speed = 8;
@@ -15,27 +17,34 @@ public class NewPlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Charcter Controller
         Controller = GetComponent<CharacterController>();   
     }
 
     // Update is called once per frame
     private void Update()
     {
+        //Get movement on the horizontal axis
         moveDirection = Vector3.zero;
         moveDirection.x = (Input.GetAxis("Horizontal"));
 
+        //If the character is on the ground
         if(Controller.isGrounded)
-                {
+        {
             verticalVelocity = -1;
 
             if(Input.GetButton("Jump"))
             {
+                //Turn vertical velocity into jumpForce to jump
                 verticalVelocity = jumpForce;
             }
         }
         else
         {
+            //If not grounded - verticalVolcity == gravity
             verticalVelocity -= gravity * Time.deltaTime;
+
+            //Cannot alter character if jumping
             moveDirection = lastMove;
         }
 
@@ -47,18 +56,21 @@ public class NewPlayerMovement : MonoBehaviour
         Controller.Move(moveDirection * Time.deltaTime);
         lastMove = moveDirection;
 
+        //Turning the character
         if (Input.GetAxis("Horizontal") != 0)
         {
-
 
             float xScale = Mathf.Abs(transform.localScale.x);
 
             if (Input.GetAxis("Horizontal") < 0)
             {
+                //If horizontal is > 0 turn the character to the right
                 transform.localScale = new Vector3(-xScale, transform.localScale.y, transform.localScale.z);
             }
+
             else
             {
+                //If horizontal is < 0 turn the character to the left
                 transform.localScale = new Vector3(xScale, transform.localScale.y, transform.localScale.z);
 
             }
