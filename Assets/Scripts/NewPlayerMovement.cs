@@ -12,13 +12,13 @@ public class NewPlayerMovement : MonoBehaviour
     private float jumpForce = 8;
     private float gravity = 25;
     private float verticalVelocity;
-    private CharacterController  Controller;
+    private CharacterController  controller;
 
     // Start is called before the first frame update
     void Start()
     {
         //Charcter Controller
-        Controller = GetComponent<CharacterController>();   
+        controller = GetComponent<CharacterController>();   
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class NewPlayerMovement : MonoBehaviour
         moveDirection.x = (Input.GetAxis("Horizontal"));
 
         //If the character is on the ground
-        if(Controller.isGrounded)
+        if(controller.isGrounded)
         {
             verticalVelocity = -1;
 
@@ -53,7 +53,7 @@ public class NewPlayerMovement : MonoBehaviour
         moveDirection *= speed;
         moveDirection.y = verticalVelocity;
 
-        Controller.Move(moveDirection * Time.deltaTime);
+        controller.Move(moveDirection * Time.deltaTime);
         lastMove = moveDirection;
 
         //Turning the character
@@ -80,5 +80,20 @@ public class NewPlayerMovement : MonoBehaviour
 
         }
 
+    }
+
+    private void OnControllerColliderHit (ControllerColliderHit hit)
+    {
+        //If not on the ground and raycast > 0.1 then allow jump
+        if(!controller.isGrounded && hit.normal.y < 0.1f)
+        {
+            if (Input.GetButton("Jump"))
+            {
+                //Draw raycast to show when wall jump is avaliable
+                Debug.DrawRay(hit.point, hit.normal, Color.red, 1.25f);
+                verticalVelocity = jumpForce;
+                moveDirection = hit.normal * speed;
+            }
+        }
     }
 }
