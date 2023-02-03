@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class NewPlayerMovement : MonoBehaviour
@@ -85,7 +85,7 @@ public class NewPlayerMovement : MonoBehaviour
     private void OnControllerColliderHit (ControllerColliderHit hit)
     {
         //If not on the ground and raycast > 0.1 then allow jump
-        if(!controller.isGrounded && hit.normal.y < 0.1f)
+        if(!controller.isGrounded && hit.normal.y < 0.5f)
         {
             if (Input.GetButton("Jump"))
             {
