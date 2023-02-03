@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") != 0)
         {
-            anim.SetBool("isSlowRunning", true);
+            
 
             float xScale = Mathf.Abs(transform.localScale.x);
 
@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            anim.SetBool("isSlowRunning", false);
+
         }
 
         moveDirection.y -= Gravity * Time.deltaTime;
