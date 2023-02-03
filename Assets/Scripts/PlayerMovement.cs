@@ -10,9 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float Gravity = 20.0f;
 
-    Vector3 moveDirection = Vector3.zero;
+    Vector3 moveDirection;
 
-    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
