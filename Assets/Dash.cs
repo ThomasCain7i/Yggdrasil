@@ -6,6 +6,7 @@ public class Dash : MonoBehaviour
 {
     public bool canDash, isDashing;
     public float dashDistance, dashTime, dashCooldown;
+    public float speed = 10f;
     public Rigidbody rb;
 
     // Start is called before the first frame update
@@ -21,11 +22,15 @@ public class Dash : MonoBehaviour
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        
+        //float verticalInput = Input.GetAxis("Vertical");
+
 
         Vector3 inputFromPlayer = new Vector3(horizontalInput, 0, 0);
+
+        transform.Translate(inputFromPlayer * speed * Time.deltaTime);
+
         //Dash mechanic
-        if (Input.GetKeyDown("h"))
+        if (Input.GetKeyDown("e"))
         {
             Debug.Log("Player has dashed");
             //transform.Translate(1, 0, 0);
