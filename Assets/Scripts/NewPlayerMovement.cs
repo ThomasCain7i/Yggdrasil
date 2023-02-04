@@ -9,7 +9,7 @@ public class NewPlayerMovement : MonoBehaviour
     private Vector3 moveDirection;
     private Vector3 lastMove;
     private float speed = 8;
-    private float jumpForce = 8;
+    private float jumpForce = 10;
     private float gravity = 25;
     private float verticalVelocity;
     private CharacterController  controller;
