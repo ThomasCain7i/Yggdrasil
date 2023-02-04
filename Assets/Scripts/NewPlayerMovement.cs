@@ -95,7 +95,7 @@ public class NewPlayerMovement : MonoBehaviour
         //If not on the ground and raycast > 0.1 then allow jump
         if(!controller.isGrounded && hit.normal.y < 0.5f)
         {
-            if (Input.GetButton("Jump"))
+            if (Input.GetButtonDown("Jump"))
             {
                 //Draw raycast to show when wall jump is avaliable
                 Debug.DrawRay(hit.point, hit.normal, Color.red, 1.25f);
