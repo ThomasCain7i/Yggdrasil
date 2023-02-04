@@ -10,11 +10,11 @@ public class EnemyAI : MonoBehaviour
     public GameObject pointA, pointB;
     //how much damage enemy does to player
     public float enemyDamage;
-    public float playerDistance = 5f;
+    public float playerDistance = 3f;
     //how close the enemy will go to patrol point before switching points
     public float patrolDistanceAB = 0.1f;
     //distance when enemy will use patrol points
-    public float patrolPointInRange = 5f;
+    public float patrolPointInRange = 4f;
     public float enemySpeed = 1f;
     //check which way enemy is facing
     public enum EnemyFacing { f, b }
@@ -40,18 +40,6 @@ public class EnemyAI : MonoBehaviour
         //Distance checker, to chase player
         Debug.Log("Enemy is " + Vector3.Distance(player.transform.position, transform.position) + "from player");
 
-        //if distance is less than... chase player
-        if (Vector3.Distance(player.transform.position, transform.position) < playerDistance)
-        {
-            //chase player
-            Debug.Log("Chase player");
-            transform.LookAt(player.transform.position);
-            transform.Translate(Vector3.forward * enemySpeed * Time.deltaTime);
-        }
-        else
-        {
-            //patrol
-        }
 
         switch (enemyAiSM)
         {
@@ -65,7 +53,8 @@ public class EnemyAI : MonoBehaviour
                 }
             if (Vector3.Distance(player.transform.position, transform.position) < playerDistance)
                 {
-                    //chase player
+                    //switch to chasing case
+                    enemyAiSM = EnemyAiSM.chasing;
                 }
                 break;
 
@@ -81,7 +70,13 @@ public class EnemyAI : MonoBehaviour
                     //switch to parol a case
                     enemyAiSM = EnemyAiSM.patrolB;
                 }
+
                 //if enemy sees player, chase player
+                if (Vector3.Distance(player.transform.position, transform.position) < playerDistance)
+                {
+                    //switch to chasing case
+                    enemyAiSM = EnemyAiSM.chasing;
+                }
 
                 break;
 
@@ -100,15 +95,28 @@ public class EnemyAI : MonoBehaviour
                 }
 
                 //if enemy sees player, chase player
-
+                if (Vector3.Distance(player.transform.position, transform.position) < playerDistance)
+                {
+                    //switch to chasing case
+                    enemyAiSM = EnemyAiSM.chasing;
+                }
                 break;
 
             case EnemyAiSM.chasing:
 
                 //look at and follow player
+                //Debug.Log("Chase player");
+                transform.LookAt(player.transform.position);
+                transform.Translate(Vector3.forward * enemySpeed * Time.deltaTime);
+
+                if (Vector3.Distance(player.transform.position, transform.position) > playerDistance)
+                {
+                    enemyAiSM = EnemyAiSM.idle;
+                }
                 break;
 
             default:
+                Debug.Log("Enemy State is" + enemyAiSM);
                 break;
 
         }
