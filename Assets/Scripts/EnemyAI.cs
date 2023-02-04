@@ -11,7 +11,10 @@ public class EnemyAI : MonoBehaviour
     //how much damage enemy does to player
     public float enemyDamage;
     public float playerDistance = 5f;
-    public float patrolDistanceAB = 3f;
+    //how close the enemy will go to patrol point before switching points
+    public float patrolDistanceAB = 0.1f;
+    //distance when enemy will use patrol points
+    public float patrolPointInRange = 5f;
     public float enemySpeed = 1f;
     //check which way enemy is facing
     public enum EnemyFacing { f, b }
@@ -55,9 +58,10 @@ public class EnemyAI : MonoBehaviour
             //default state idle
             case EnemyAiSM.idle:
                 //enemy check if they are close to a patrol point
-            if (Vector3.Distance(pointA.transform.position, transform.position) < patrolDistanceAB)
+            if (Vector3.Distance(pointA.transform.position, transform.position) < patrolPointInRange)
                 {
-                    //go to point a
+                    //switch to parol a case
+                    enemyAiSM = EnemyAiSM.patrolA;
                 }
             if (Vector3.Distance(player.transform.position, transform.position) < playerDistance)
                 {
@@ -68,9 +72,15 @@ public class EnemyAI : MonoBehaviour
             case EnemyAiSM.patrolA:
 
                 //look at and go to point a
+                transform.LookAt(pointA.transform.position);
+                transform.Translate(Vector3.forward * enemySpeed * Time.deltaTime);
 
                 //once enemy has reached point a, switch to point b
-
+                if (Vector3.Distance(pointA.transform.position, transform.position) < patrolDistanceAB)
+                {
+                    //switch to parol a case
+                    enemyAiSM = EnemyAiSM.patrolB;
+                }
                 //if enemy sees player, chase player
 
                 break;
@@ -78,8 +88,16 @@ public class EnemyAI : MonoBehaviour
             case EnemyAiSM.patrolB:
 
                 //look at and go to point b
+                transform.LookAt(pointB.transform.position);
+                transform.Translate(Vector3.forward * enemySpeed * Time.deltaTime);
 
                 //once enemy has reached point b, switch to point a
+                //once enemy has reached point a, switch to point b
+                if (Vector3.Distance(pointB.transform.position, transform.position) < patrolDistanceAB)
+                {
+                    //switch to parol a case
+                    enemyAiSM = EnemyAiSM.patrolA;
+                }
 
                 //if enemy sees player, chase player
 
