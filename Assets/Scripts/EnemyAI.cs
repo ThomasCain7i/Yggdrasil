@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
     //how close the enemy will go to patrol point before switching points
     public float patrolDistanceAB = 0.1f;
     //distance when enemy will use patrol points
-    public float patrolPointInRange = 4f;
+    public float patrolPointInRange = 10f;
     public float enemySpeed = 1f;
     //check which way enemy is facing
     public enum EnemyFacing { f, b }
@@ -32,6 +32,7 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         pointA = GameObject.FindGameObjectWithTag("PatrolPointA");
         pointB = GameObject.FindGameObjectWithTag("PatrolPointB");
+        
     }
 
     // Update is called once per frame
@@ -45,7 +46,7 @@ public class EnemyAI : MonoBehaviour
         {
             //default state idle
             case EnemyAiSM.idle:
-                //enemy check if they are close to a patrol point
+                //enemy check if they are close to a patrol point, to start patroling
             if (Vector3.Distance(pointA.transform.position, transform.position) < patrolPointInRange)
                 {
                     //switch to parol a case
