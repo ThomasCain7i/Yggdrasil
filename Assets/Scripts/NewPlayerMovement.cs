@@ -79,7 +79,6 @@ public class NewPlayerMovement : MonoBehaviour
         {
 
         }
-
     }
 
     private void OnControllerColliderHit (ControllerColliderHit hit)
