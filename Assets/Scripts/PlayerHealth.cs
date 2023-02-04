@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
         //check if player is colliding with an enemy
 
         Debug.Log("Collision with" + collision.gameObject.name);
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("EnemyHitBox"))
         {
             //Player Takes Damage on collision with enemies
             Debug.Log("Player Takes Damage");

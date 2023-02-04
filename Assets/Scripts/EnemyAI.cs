@@ -107,7 +107,7 @@ public class EnemyAI : MonoBehaviour
 
                 //look at and follow player
                 //Debug.Log("Chase player");
-                transform.LookAt(player.transform.position);
+                //transform.LookAt(player.transform.position);
                 transform.Translate(Vector3.forward * enemySpeed * Time.deltaTime);
 
                 if (Vector3.Distance(player.transform.position, transform.position) > playerDistance)
