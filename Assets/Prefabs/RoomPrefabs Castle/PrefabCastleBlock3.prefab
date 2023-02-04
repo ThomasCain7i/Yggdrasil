@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8487751446908622006}
+  - component: {fileID: 3555293768232927744}
   m_Layer: 0
   m_Name: PrefabCastleBlock3
   m_TagString: Untagged
@@ -33,6 +34,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3555293768232927744
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8487751446908622007}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.6747136, y: 1.24685, z: 2.6485019}
+  m_Center: {x: 6.425823, y: -0.2544359, z: -0.07887411}
 --- !u!1001 &8487751448421259849
 PrefabInstance:
   m_ObjectHideFlags: 0
