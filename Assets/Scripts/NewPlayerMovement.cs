@@ -13,6 +13,7 @@ public class NewPlayerMovement : MonoBehaviour
     private float gravity = 25;
     private float verticalVelocity;
     private CharacterController  controller;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,8 @@ public class NewPlayerMovement : MonoBehaviour
 
             if(Input.GetButton("Jump"))
             {
+                //Jump animation on
+                animator.SetBool("isJumping", true);
                 //Turn vertical velocity into jumpForce to jump
                 verticalVelocity = jumpForce;
             }
@@ -56,9 +59,15 @@ public class NewPlayerMovement : MonoBehaviour
         controller.Move(moveDirection * Time.deltaTime);
         lastMove = moveDirection;
 
+        if(controller.isGrounded)
+        {
+            animator.SetBool("isJumping", false);
+        }
+
         //Turning the character
         if (Input.GetAxis("Horizontal") != 0)
         {
+            animator.SetBool("isRunning", true);
 
             float xScale = Mathf.Abs(transform.localScale.x);
 
@@ -77,7 +86,7 @@ public class NewPlayerMovement : MonoBehaviour
         }
         else
         {
-
+            animator.SetBool("isRunning", false);
         }
     }
 
