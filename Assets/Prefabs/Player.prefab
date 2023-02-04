@@ -1,6 +1,9 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 5812ea7 (Catch Up (Thomas))
 --- !u!1 &1107418388
 GameObject:
   m_ObjectHideFlags: 0
@@ -27,7 +30,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107418388}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: 0.2167511, y: 0.24249995, z: -3.84}
+=======
+  m_LocalPosition: {x: 0.2167511, y: 0.24249995, z: -3.5345163}
+>>>>>>> parent of 5812ea7 (Catch Up (Thomas))
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -85,8 +92,11 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107418388}
   m_Enabled: 1
+<<<<<<< HEAD
 =======
 >>>>>>> 5812ea726cfae4bb5c51091e96fd73a13c2fed20
+=======
+>>>>>>> parent of 5812ea7 (Catch Up (Thomas))
 --- !u!1 &1539422970167983240
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +133,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.4, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1107418389}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
