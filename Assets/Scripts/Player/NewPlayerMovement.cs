@@ -65,6 +65,7 @@ public class NewPlayerMovement : MonoBehaviour
         controller.Move(moveDirection * Time.deltaTime);
         lastMove = moveDirection;
 
+
         if(controller.isGrounded)
         {
             animator.SetBool("isJumping", false);
