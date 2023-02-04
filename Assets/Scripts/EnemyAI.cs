@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
     //ref to patrol points
     public GameObject pointA, pointB;
     //how much damage enemy does to player
-    public float enemyDamage;
+    public float enemyDamage = 1;
     public float playerDistance = 3f;
     //how close the enemy will go to patrol point before switching points
     public float patrolDistanceAB = 0.1f;
@@ -121,7 +121,17 @@ public class EnemyAI : MonoBehaviour
                 break;
 
         }
+
+        
             
 
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerHealth>().PlayerTakeDamage(enemyDamage);
+        }
     }
 }
