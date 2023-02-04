@@ -14,6 +14,8 @@ public class NewPlayerMovement : MonoBehaviour
     private float verticalVelocity;
     private CharacterController  controller;
     public Animator animator;
+    //bool to check player is on ground
+    public bool playerIsGrounded;
 
     // Start is called before the first frame update
     void Start()
@@ -32,10 +34,14 @@ public class NewPlayerMovement : MonoBehaviour
         //If the character is on the ground
         if(controller.isGrounded)
         {
+            //set player to grounded
+            playerIsGrounded = true;
+
             verticalVelocity = -1;
 
             if(Input.GetButton("Jump"))
             {
+                playerIsGrounded = false;
                 //Jump animation on
                 animator.SetBool("isJumping", true);
                 //Turn vertical velocity into jumpForce to jump

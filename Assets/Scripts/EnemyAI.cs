@@ -8,6 +8,8 @@ public class EnemyAI : MonoBehaviour
     public GameObject player;
     //ref to patrol points
     public GameObject pointA, pointB;
+    //ref to player controller
+    public NewPlayerMovement playerMovement;
     //how much damage enemy does to player
     public float enemyDamage = 1f;
     public float playerDistance = 3f;
@@ -107,7 +109,11 @@ public class EnemyAI : MonoBehaviour
 
                 //look at and follow player
                 //Debug.Log("Chase player");
-                //transform.LookAt(player.transform.position);
+                if (player.GetComponent<NewPlayerMovement>().playerIsGrounded == true)
+                {
+                    transform.LookAt(player.transform.position);
+                }
+                
                 transform.Translate(Vector3.forward * enemySpeed * Time.deltaTime);
 
                 if (Vector3.Distance(player.transform.position, transform.position) > playerDistance)
