@@ -8,7 +8,7 @@ public class Dashs : MonoBehaviour
 
     public float dashSpeeds = 0.5f;
     public float dashTimes = 0.25f;
-    public float dashCD = 1.0f;
+    public float dashCD = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +36,7 @@ public class Dashs : MonoBehaviour
 
         while (Time.time < startTime + dashTimes)
         {
-            transform.Translate(Vector3.forward * dashSpeeds);
+            transform.Translate(Vector3.right * dashSpeeds);
             dashCD = 3;
             yield return null;
         }
