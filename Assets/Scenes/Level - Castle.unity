@@ -215,8 +215,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_AnchoredPosition: {x: 10, y: -3.5}
+  m_SizeDelta: {x: -40, y: -27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8511315
 MonoBehaviour:
@@ -3050,7 +3050,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ffeefa5b33bd6d647956777f8c863052, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a3a7492ac7c361489f206ab8c063f37, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4663,9 +4663,14 @@ MonoBehaviour:
   dialogue:
     name: Cordelia
     sentences:
-    - yo i love u
-    - sexy mama
-    - trallla
+    - Our time is not long for this world, your father and I have planted our blood
+      in the sepulchral soil, by the time you read this, we will probably be dead.
+    - Take our green bulbs to the Yggrasdill tree and place them in the soil at its
+      roots.
+    - Be careful my child, the rebel peasants grow more violent by the day and you
+      must be prepared to fight on sight.
+    - They want to destroy everything our family built because they lack the discipline
+      and intellect to be successful themselves.
 --- !u!114 &720030290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5423,8 +5428,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -17.5}
-  m_SizeDelta: {x: -20, y: -55}
+  m_AnchoredPosition: {x: 10, y: -18.75}
+  m_SizeDelta: {x: -40, y: -57.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &866365332
 MonoBehaviour:
