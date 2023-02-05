@@ -1,12 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
+// add this line to use the SceneManagment library
 using UnityEngine.SceneManagement;
 
 public class NextScene : MonoBehaviour
 {
-    private void OnTriggerEnter(Collision other)
+
+    [SerializeField] private string loadLevel;
+
+    void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(2);
+        if (other.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(loadLevel);
+        }
     }
 }

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2102041877}
   - component: {fileID: 2102041876}
   - component: {fileID: 233965402}
+  - component: {fileID: 3588930880491288612}
   - component: {fileID: 2021083901118135028}
   m_Layer: 0
   m_Name: Player
@@ -128,6 +129,7 @@ MonoBehaviour:
   dashSpeeds: 0.5
   dashTimes: 0.25
   dashCD: 3
+  dashAudio: {fileID: 0}
 --- !u!114 &1539422970167983242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1539422970167983244}
   playerIsGrounded: 0
+  wallJumpAudio: {fileID: 0}
+  runningAudio: {fileID: 0}
 --- !u!143 &1539422970167983243
 CharacterController:
   m_ObjectHideFlags: 0
@@ -215,6 +219,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 049bbf07379083941807571dbf3b98d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stompAudio: {fileID: 0}
+--- !u!114 &3588930880491288612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539422970167983240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f62879a13e895d49b120ca445fb05ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadLevel: Level - Forest
 --- !u!82 &2021083901118135028
 AudioSource:
   m_ObjectHideFlags: 0
