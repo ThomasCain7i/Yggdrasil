@@ -13,6 +13,9 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
+    //ref to audio sound for turning pages
+
+
     // Start is called before the first frame update
     void Start()
     {

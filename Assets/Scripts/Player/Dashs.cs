@@ -9,6 +9,7 @@ public class Dashs : MonoBehaviour
     public float dashSpeeds = 0.5f;
     public float dashTimes = 0.25f;
     public float dashCD = 3f;
+    public AudioSource dashAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,9 @@ public class Dashs : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            //play dash sound
+            dashAudio.Play();
+
             if (dashCD <= 0)
             {
                 StartCoroutine(Dashes());
