@@ -21,7 +21,7 @@ public class Dashs : MonoBehaviour
     {
         dashCD -= Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (dashCD <= 0)
             {
