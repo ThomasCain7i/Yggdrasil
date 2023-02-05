@@ -8,6 +8,7 @@ TagManager:
   - PatrolPointA
   - PatrolPointB
   - EnemyHitBox
+  - PageAudio
   layers:
   - Default
   - TransparentFX
