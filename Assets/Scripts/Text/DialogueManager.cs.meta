@@ -3,7 +3,11 @@ guid: d98e664e8b203244dae355213bb0332b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - nametext: {instanceID: 0}
+  - dialogueText: {instanceID: 0}
+  - animator: {instanceID: 0}
+  - pageTurnAudio: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

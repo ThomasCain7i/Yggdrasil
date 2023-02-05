@@ -48,6 +48,7 @@ public class NewPlayerMovement : MonoBehaviour
                 animator.SetBool("isJumping", true);
                 //Turn vertical velocity into jumpForce to jump
                 verticalVelocity = jumpForce;
+                wallJumpAudio.Play();
             }
         }
         else
@@ -71,6 +72,7 @@ public class NewPlayerMovement : MonoBehaviour
         if(controller.isGrounded)
         {
             animator.SetBool("isJumping", false);
+            
         }
 
         //Turning the character
@@ -110,6 +112,7 @@ public class NewPlayerMovement : MonoBehaviour
                 Debug.DrawRay(hit.point, hit.normal, Color.red, 1.25f);
                 verticalVelocity = jumpForce;
                 moveDirection = hit.normal * speed;
+                wallJumpAudio.Play();
             }
         }
     }
