@@ -17,7 +17,8 @@ public class NewPlayerMovement : MonoBehaviour
     //bool to check player is on ground
     public bool playerIsGrounded;
     //Audio
-    public AudioSource wallJumpAudio;
+    private bool playerIsRunning = false;
+    public AudioSource wallJumpAudio, runningAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -75,10 +76,17 @@ public class NewPlayerMovement : MonoBehaviour
             
         }
 
+        //when player is running play looping footsteps
+        if(playerIsRunning == false)
+        {
+            runningAudio.Play();
+        }
+
         //Turning the character
         if (Input.GetAxis("Horizontal") != 0)
         {
             animator.SetBool("isRunning", true);
+            playerIsRunning = true;
 
             float xScale = Mathf.Abs(transform.localScale.x);
 
@@ -98,6 +106,7 @@ public class NewPlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("isRunning", false);
+            playerIsRunning = false;
         }
     }
 
