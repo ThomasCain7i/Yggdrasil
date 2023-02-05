@@ -17,7 +17,7 @@ public class NewPlayerMovement : MonoBehaviour
     //bool to check player is on ground
     public bool playerIsGrounded;
     //Audio
-    AudioSource Audiosource;
+    public AudioSource wallJumpAudio;
 
     // Start is called before the first frame update
     void Start()
