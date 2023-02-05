@@ -16,6 +16,8 @@ public class NewPlayerMovement : MonoBehaviour
     public Animator animator;
     //bool to check player is on ground
     public bool playerIsGrounded;
+    //Audio
+    AudioSource Audiosource;
 
     // Start is called before the first frame update
     void Start()

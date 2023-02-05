@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
     {
         Play("Music");
         Play("Theme");
+        Play("Forest");
     }
 
     public void Play(string name)
