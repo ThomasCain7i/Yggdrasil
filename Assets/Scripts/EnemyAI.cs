@@ -24,8 +24,10 @@ public class EnemyAI : MonoBehaviour
     //enemy states
     public enum EnemyAiSM { idle, chasing, patrolA, patrolB }
     public EnemyAiSM enemyAiSM;
-    
-    
+    //animation for enemy
+    private CharacterController enemyController;
+    public Animator enemyAnimator;
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,7 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         pointA = GameObject.FindGameObjectWithTag("PatrolPointA");
         pointB = GameObject.FindGameObjectWithTag("PatrolPointB");
+        enemyController = GetComponent<CharacterController>();
         
     }
 
@@ -48,6 +51,10 @@ public class EnemyAI : MonoBehaviour
         {
             //default state idle
             case EnemyAiSM.idle:
+
+                //set animation to idle
+                enemyAnimator.SetBool("EnemyIsRunning", false);
+
                 //enemy check if they are close to a patrol point, to start patroling
             if (Vector3.Distance(pointA.transform.position, transform.position) < patrolPointInRange)
                 {
@@ -62,6 +69,9 @@ public class EnemyAI : MonoBehaviour
                 break;
 
             case EnemyAiSM.patrolA:
+
+                //Set animation to running
+                enemyAnimator.SetBool("EnemyIsRunning", true);
 
                 //look at and go to point a
                 transform.LookAt(pointA.transform.position);
@@ -85,6 +95,9 @@ public class EnemyAI : MonoBehaviour
 
             case EnemyAiSM.patrolB:
 
+                //Set animation to running
+                enemyAnimator.SetBool("EnemyIsRunning", true);
+
                 //look at and go to point b
                 transform.LookAt(pointB.transform.position);
                 transform.Translate(Vector3.forward * enemySpeed * Time.deltaTime);
@@ -106,6 +119,9 @@ public class EnemyAI : MonoBehaviour
                 break;
 
             case EnemyAiSM.chasing:
+
+                //Set animation to running
+                enemyAnimator.SetBool("EnemyIsRunning", true);
 
                 //look at and follow player
                 //Debug.Log("Chase player");
