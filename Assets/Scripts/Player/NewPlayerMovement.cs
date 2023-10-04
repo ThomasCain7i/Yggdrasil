@@ -121,6 +121,7 @@ public class NewPlayerMovement : MonoBehaviour
                 Debug.DrawRay(hit.point, hit.normal, Color.red, 1.25f);
                 verticalVelocity = jumpForce;
                 moveDirection = hit.normal * speed;
+                
                 wallJumpAudio.Play();
             }
         }
